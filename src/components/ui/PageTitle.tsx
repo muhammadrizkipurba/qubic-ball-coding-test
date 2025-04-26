@@ -1,0 +1,19 @@
+import React from 'react'
+import ThemeToggleButton from './ThemeToggleButton';
+
+type Props = {
+  title: string;
+};
+
+const PageTitle = ({
+  title
+}: Props) => {
+  return (
+    <div className='w-full flex items-center justify-between'>
+      <h1 className='text-2xl font-bold'>{title}</h1>
+      <ThemeToggleButton />
+    </div>
+  )
+}
+
+export default PageTitle
