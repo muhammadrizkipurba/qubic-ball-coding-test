@@ -1,0 +1,28 @@
+import React from 'react'
+
+const SearchBar = () => {
+  return (
+    <div className="w-full flex justify-between items-center mb-3 mt-1">
+      <div className="ml-0">
+        <div className="w-full max-w-md min-w-[200px] relative">
+          <div className="relative">
+            <input
+              className="w-full pr-11 h-10 pl-3 py-2 bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded transition duration-200 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md dark:text-white dark:border-gray-200 dark:focus:border-gray-50 dark:hover:border-gray-50"
+              placeholder="Search for invoice..."
+            />
+            <button
+              className="absolute h-8 w-8 right-1 top-1 my-auto px-2 flex items-center bg-transparent rounded "
+              type="button"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="w-8 h-8 text-slate-600 dark:text-white">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default SearchBar
