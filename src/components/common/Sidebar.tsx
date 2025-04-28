@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import React, { ReactNode } from 'react'
-import { CgPushChevronLeftR } from 'react-icons/cg'
 import { MdMoreVert } from 'react-icons/md'
 
 const Sidebar = ({
@@ -9,22 +8,8 @@ const Sidebar = ({
   children: ReactNode
 }) => {
   return (
-    <aside className='h-screen w-64'>
+    <aside className='h-[calc(100vh-56px)] w-64'>
       <nav className='h-full flex flex-col bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-white shadow-sm'>
-        <div className='p-4 pb-2 flex justify-between items-center'>
-          <Image
-            className="dark:invert w-32"
-            src="/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
-          />
-          <button className='cursor-pointer'>
-            <CgPushChevronLeftR size={20} />
-          </button>
-        </div>
-
         <ul className='flex-1 px-3 py-5'>
           {children}
         </ul>
