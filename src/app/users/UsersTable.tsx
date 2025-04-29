@@ -70,6 +70,7 @@ const UsersTable = ({
   };
 
   const handleNext =()=>{
+    if(activePage === pages.length) return;
     setActivePage(activePage + 1)
   };
 

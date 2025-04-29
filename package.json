@@ -10,7 +10,11 @@
   },
   "dependencies": {
     "@bprogress/next": "^3.2.12",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
     "@hookform/resolvers": "^5.0.1",
+    "@mui/material": "^7.0.2",
+    "@mui/x-charts": "^8.1.0",
     "@tanstack/react-query": "^5.74.4",
     "jose": "^6.0.10",
     "next": "15.3.1",

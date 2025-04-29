@@ -3,6 +3,14 @@ export type MenuItemType = {
   slug: string;
 };
 
+export type DataOverviewType = {
+  title: string;
+  value: string;
+  interval: string;
+  trend: 'up' | 'down' | 'neutral';
+  data: number[];
+};
+
 export type UserData = {
   id: number;
   name: string;

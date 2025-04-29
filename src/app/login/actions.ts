@@ -1,6 +1,6 @@
 "use server";
 
-import { createSession, deleteSession } from "@/app/lib/session";
+import { createSession, deleteSession, getSession } from "@/app/lib/session";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 
@@ -52,6 +52,11 @@ export async function login(prevState: PrevStateType, formData: FormData) {
 
   redirect("/dashboard");
 };
+
+export const sessionData = async () => {
+  const session = await getSession();
+  return session;
+}
 
 export const logout = async () => {
   await deleteSession();
