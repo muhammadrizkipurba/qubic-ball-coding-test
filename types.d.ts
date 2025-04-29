@@ -26,3 +26,10 @@ export type UserData = {
     bs: string;
   };
 };
+
+export type PostData = {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+};

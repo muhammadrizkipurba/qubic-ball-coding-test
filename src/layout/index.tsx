@@ -19,7 +19,7 @@ const MainLayout = ({ children }: Props) => {
   const handleClickOutside = (event: MouseEvent) => {
     if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
       setisOpenSidebar(false);
-    }
+    };
   };
 
   useEffect(() => {
@@ -33,17 +33,22 @@ const MainLayout = ({ children }: Props) => {
     <div className='flex flex-col h-screen'>
       <Header isOpenSidebar={isOpenSidebar} setIsOpenSidebar={setisOpenSidebar} />
       <div className='relative flex overflow-x-hidden flex-1'>
-        <div ref={sidebarRef} className={`${isOpenSidebar ? 'left-0' : '-left-full md:left-0'} absolute md:relative transition-all delay-50 duration-300`}>
+        <div ref={sidebarRef} className={`${isOpenSidebar ? 'left-0' : '-left-full md:left-0'} absolute md:relative transition-all delay-50 duration-300 z-10`}>
           <Sidebar>
             {sidebarMenus.map((item, idx) => {
               return (
-                <SidebarItem key={`sidebar-item-${idx}`} text={item.text} active={pathname === `/${item.slug}`} slug={item.slug} />
+                <SidebarItem
+                  key={`sidebar-item-${idx}`}
+                  text={item.text}
+                  active={pathname.includes(item.slug)}
+                  slug={item.slug}
+                />
               )
             })}
           </Sidebar>
         </div>
         <div 
-          className='flex-1 px-5 py-4 dark:bg-gray-900'
+          className='flex-1 px-5 py-4 dark:bg-gray-900 overflow-y-auto'
         >
           {children}
         </div>

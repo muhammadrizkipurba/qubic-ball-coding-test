@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import ReactQueryClientProvider from "@/providers/QueryProvider";
 import ThemeProvider from "@/providers/ThemeProvider";
 import MainLayout from "@/layout";
 import "./globals.css";
@@ -27,25 +26,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ReactQueryClientProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 dark:bg-slate-950`}
-        >
-          <BProgressProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              <MainLayout>
-                {children}
-              </MainLayout>
-            </ThemeProvider>
-          </BProgressProvider>
-        </body>
-      </html>
-    </ReactQueryClientProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 dark:bg-slate-950`}
+      >
+        <BProgressProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <MainLayout>
+              {children}
+            </MainLayout>
+          </ThemeProvider>
+        </BProgressProvider>
+      </body>
+    </html>
   );
 }

@@ -17,7 +17,7 @@ const SidebarItem = ({
 }: Props) => {
   return (
     <li>
-      <Link href={slug} className={`
+      <Link href={`/${slug}`} className={`
       w-full relative py-2 px-3 gap-3 flex items-center my-1 font-medium rounded-md cursor-pointer transition-colors
       ${active ? "bg-gradient-to-tr from-slate-900 to-slate-600 text-white dark:invert" : "hover:bg-slate-100 text-gray-900 dark:invert"}
     `}>

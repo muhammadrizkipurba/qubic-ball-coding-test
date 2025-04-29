@@ -1,14 +1,26 @@
 import React from 'react'
 
-const SearchBar = () => {
+type Props = {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+  placeholder: string;
+}
+
+const SearchBar = ({
+  onChange,
+  value,
+  placeholder
+}: Props) => {
   return (
     <div className="w-full flex justify-between items-center mb-3 mt-1">
-      <div className="ml-0">
-        <div className="w-full max-w-md min-w-[200px] relative">
+      <div className="ml-0 w-full md:max-w-xs">
+        <div className="w-full min-w-[200px] relative">
           <div className="relative">
             <input
-              className="w-full pr-11 h-10 pl-3 py-2 bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded transition duration-200 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md dark:text-white dark:border-gray-200 dark:focus:border-gray-50 dark:hover:border-gray-50"
-              placeholder="Search for invoice..."
+              className="w-full pr-11 h-10 pl-3 py-2 bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md transition duration-200 ease focus:outline-none focus:border-slate-400 hover:border-slate-400 shadow-sm focus:shadow-md dark:text-white dark:border-gray-200 dark:focus:border-gray-50 dark:hover:border-gray-50"
+              placeholder={placeholder}
+              onChange={onChange}
+              value={value}
             />
             <button
               className="absolute h-8 w-8 right-1 top-1 my-auto px-2 flex items-center bg-transparent rounded "

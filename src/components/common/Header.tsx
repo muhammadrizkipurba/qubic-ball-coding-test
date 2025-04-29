@@ -1,7 +1,9 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 import { CgPushChevronRightR } from 'react-icons/cg'
 import ThemeToggleButton from '../ui/ThemeToggleButton';
+import { IoIosPower } from 'react-icons/io';
 
 type Props = {
   isOpenSidebar: boolean;
@@ -29,7 +31,13 @@ const Header = ({
               priority
             />
           </div>
-          <ThemeToggleButton />
+          <div className='flex gap-3'>
+            <ThemeToggleButton />
+            <button className='text-red-600 text-sm font-semibold border border-red-600 px-2 py-1 rounded-md hover:text-white hover:bg-red-600 transition-colors duration-300 cursor-pointer flex items-center gap-1'>
+              Logout
+              <IoIosPower size={18} />
+            </button>
+          </div>
         </div>
       </nav>
     </header>
