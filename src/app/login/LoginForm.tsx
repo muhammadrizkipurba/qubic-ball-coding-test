@@ -1,12 +1,9 @@
 "use client";
 
-// import { testUser } from '@/constants';
-// import { zodResolver } from '@hookform/resolvers/zod';
-// import { useForm } from 'react-hook-form';
-// import { z, ZodType } from 'zod';
 import { useActionState } from 'react';
 import { useFormStatus } from 'react-dom';
 import { login } from './actions';
+import { MoonLoader } from 'react-spinners';
 
 export type FormData = {
   username: string;
@@ -15,41 +12,15 @@ export type FormData = {
 
 const LoginForm = () => {
   const [state, loginAction] = useActionState(login, undefined);
-  // const schema: ZodType<FormData> = z.object({
-  //   username: z.string().min(8, { message: "Username must be at least 8 characters" }).trim(),
-  //   password: z.string().min(8, { message: "Password must be at least 8 characters" }).trim()
-  // });
-
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   setError,
-  //   formState: {
-  //     errors
-  //   }
-  // } = useForm<FormData>({
-  //   resolver: zodResolver(schema)
-  // });
-
-  // const onSubmit = async (data: FormData) => {
-  //   if (data.username !== testUser.username || data.password !== testUser.password) {
-  //     return setError("password", { message: "Combination of username and password is incorrect" });
-  //   };
-    
-  //   onLogin(data.username);
-  // };
-
   return (
     <form
       className="space-y-6"
-      // onSubmit={handleSubmit(onSubmit)}
       action={loginAction}
     >
       <div>
         <label htmlFor="username" className="block text-sm/6 font-medium text-gray-900 dark:invert">Username</label>
         <div className="mt-2">
           <input
-            // {...register("username")}
             type="text"
             id="username"
             name="username"
@@ -65,7 +36,6 @@ const LoginForm = () => {
         </div>
         <div className="mt-2">
           <input
-            // {...register("password")}
             type="password"
             id="password"
             name="password"
@@ -77,13 +47,6 @@ const LoginForm = () => {
 
       <div>
         <SubmitButton />
-        {/* <button
-          type="submit"
-          className="flex w-full justify-center rounded-md px-3 py-3 text-sm/6 font-semibold shadow-xs transition-colors bg-gradient-to-tr from-slate-900 to-slate-600 text-white dark:invert"
-          disabled={false}
-        >
-          Sign in
-        </button> */}
       </div>
     </form>
   )
@@ -93,8 +56,9 @@ function SubmitButton() {
   const { pending } = useFormStatus();
 
   return (
-    <button disabled={pending} type="submit" className="flex w-full justify-center rounded-md px-3 py-3 text-sm/6 cursor-pointer font-semibold shadow-xs transition-colors bg-gradient-to-tr from-slate-900 to-slate-600 text-white dark:invert">
-      Login
+    <button disabled={pending} type="submit" className="flex w-full justify-center rounded-md px-3 py-3 text-sm/6 cursor-pointer font-semibold shadow-xs transition-colors bg-gradient-to-tr from-slate-900 to-slate-600 text-white dark:invert items-center gap-2">
+      <MoonLoader loading={pending} color='white' size={18} />
+      {pending ? "Mohon tunggu..." : "Login"}
     </button>
   );
 }

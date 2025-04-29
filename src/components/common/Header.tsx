@@ -4,6 +4,7 @@ import React from 'react'
 import { CgPushChevronRightR } from 'react-icons/cg'
 import ThemeToggleButton from '../ui/ThemeToggleButton';
 import { IoIosPower } from 'react-icons/io';
+import { logout } from '@/app/login/actions';
 
 type Props = {
   isOpenSidebar: boolean;
@@ -14,6 +15,11 @@ const Header = ({
   isOpenSidebar,
   setIsOpenSidebar
 }: Props) => {
+
+  const onLogout = async() => {
+    await logout();  
+  };
+
   return (
     <header className='h-14 flex items-center'>
       <nav className='px-4 w-full'>
@@ -33,7 +39,10 @@ const Header = ({
           </div>
           <div className='flex gap-3'>
             <ThemeToggleButton />
-            <button className='text-red-600 text-sm font-semibold border border-red-600 px-2 py-1 rounded-md hover:text-white hover:bg-red-600 transition-colors duration-300 cursor-pointer flex items-center gap-1'>
+            <button 
+              className='text-red-600 text-sm font-semibold border border-red-600 px-2 py-1 rounded-md hover:text-white hover:bg-red-600 transition-colors duration-300 cursor-pointer flex items-center gap-1'
+              onClick={onLogout}
+            >
               Logout
               <IoIosPower size={18} />
             </button>
