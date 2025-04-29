@@ -1,10 +1,13 @@
-import { fetchUserDetails } from '@/actions/users';
-import PageTitle from '@/components/ui/PageTitle';
-import React, { ReactNode } from 'react';
-import { PostData } from '../../../../types';
 import Link from 'next/link';
+import React, { ReactNode } from 'react';
 import { FaChevronLeft } from 'react-icons/fa6';
 import { BiEdit } from 'react-icons/bi';
+
+import { fetchUserDetails } from '../actions';
+import { PostData } from '../../../../types';
+
+import PageTitle from '@/components/ui/PageTitle';
+import MainLayout from '@/layout';
 
 const DisplayText = ({ title, text }: { title: string; text: string }) => {
   return (
@@ -41,7 +44,7 @@ const UserDetails = async ({
   const userDetails = await fetchUserDetails(Number(id));
 
   return (
-    <div>
+    <MainLayout>
       <div className='flex flex-col md:flex-row md:items-center justify-between gap-5'>
         <Link href={"/users"} >
           <FaChevronLeft size={15} />
@@ -92,7 +95,7 @@ const UserDetails = async ({
             return (
               <li key={`post-${post.id}`} className='flex items-start md:items-center gap-4 py-5 px-4 border-b border-slate-800 hover:bg-slate-700 cursor-pointer transition-colors duration-300 group'>
                 <div className='w-7 flex items-center justify-center transition-colors bg-gradient-to-tr from-slate-900 to-slate-600 text-white dark:invert rounded-md mt-2 md:mt-0 group-hover:invert'>
-                  <label className='font-semibold cursor-pointer'>{idx+1}</label>
+                  <label className='font-semibold cursor-pointer'>{idx + 1}</label>
                 </div>
                 <div className='flex-1 group-hover:text-white'>
                   <label className='text-sm'>Post ID : <strong>{post.id}</strong></label>
@@ -104,7 +107,7 @@ const UserDetails = async ({
           })}
         </ul>
       </Card>
-    </div>
+    </MainLayout>
   )
 }
 

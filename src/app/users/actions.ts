@@ -1,5 +1,5 @@
 'use server'
-import { PostData, UserData } from "../../types";
+import { PostData, UserData } from "../../../types";
  
 export const fetchUsers = async() => {
   const res = await fetch('https://jsonplaceholder.typicode.com/users');

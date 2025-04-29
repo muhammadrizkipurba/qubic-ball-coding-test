@@ -1,11 +1,12 @@
 import PageTitle from '@/components/ui/PageTitle'
+import MainLayout from '@/layout'
 import React from 'react'
 
 const PostsPage = () => {
   return (
-    <div>
+    <MainLayout>
       <PageTitle title="Posts" />
-    </div>
+    </MainLayout>
   )
 }
 

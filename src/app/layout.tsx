@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import ThemeProvider from "@/providers/ThemeProvider";
-import MainLayout from "@/layout";
 import "./globals.css";
 import BProgressProvider from "@/providers/ProgressProvider";
 
@@ -37,9 +36,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <MainLayout>
-              {children}
-            </MainLayout>
+            {children}
           </ThemeProvider>
         </BProgressProvider>
       </body>
